@@ -1,5 +1,5 @@
 export interface user{
     UUID:string,
-    username:string,
+    userName:string,
     password?:string,
 }
