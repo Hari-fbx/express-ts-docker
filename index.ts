@@ -1,11 +1,12 @@
-import express from 'express';
+import express, { request, response } from 'express';
 
 import bodyParser from 'body-parser';
 import signin from './api/signin';
-import { authenticatetoken } from './utils/jwt';
+import { authToken } from './utils/jwt';
 import { profile } from './api/profile';
 import logger from './utils/logger';
 import { sqlInit } from './utils/mysql';
+import { signup } from './api/signup';
 
 
 const app = express();
@@ -20,7 +21,8 @@ app.listen(port,() => {
 sqlInit();
 
 app.post("/signin", signin);
-app.post("/profile", authenticatetoken, profile);
+app.post("/profile",authToken, profile);
+app.post("/signup",signup);
 
 
 
