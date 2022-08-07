@@ -7,10 +7,10 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/profile HTTP/1.1
+GET  http://localhost:3000/profile HTTP/1.1
 Content-Type: application/json
-access-token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVVUlEIjoiM2M4ODZhMTAtNmVkYy00NzA3LTg5MzItZmE5NTJhY2ZhMDJmIiwidXNlck5hbWUiOiJodmUiLCJpYXQiOjE2NTk4ODY2MDYsImV4cCI6MTY1OTg4NjkwNn0.lUiWVQbMGNQjluHml7_2OKPqp4kmyq8WGTaual_l6Pc
-refresh-token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVVUlEIjoiM2M4ODZhMTAtNmVkYy00NzA3LTg5MzItZmE5NTJhY2ZhMDJmIiwidXNlck5hbWUiOiJodmUiLCJpYXQiOjE2NTk4ODY2MDYsImV4cCI6MTY1OTg4OTE5OH0.pRgHDbhtesFJ5GDetq4jonwjeJ7RuZtpqbCiGh2mMfw
+access-token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVVUlEIjoiM2M4ODZhMTAtNmVkYy00NzA3LTg5MzItZmE5NTJhY2ZhMDJmIiwidXNlck5hbWUiOiJodmUiLCJpYXQiOjE2NTk4ODc3MTEsImV4cCI6MTY1OTg4ODAxMX0.V1k0ep7kp10jyk5Z_QX4OtLCl8CP9-03VuG9rHGVCa0
+refresh-token : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVVUlEIjoiM2M4ODZhMTAtNmVkYy00NzA3LTg5MzItZmE5NTJhY2ZhMDJmIiwidXNlck5hbWUiOiJodmUiLCJpYXQiOjE2NTk4ODc3MTEsImV4cCI6MTY1OTg5MDMwM30.TyPMlVVSPWAtCCQ9YxJ6oaTPs9MwTYSvYGMqQlQzR0Y
 
 ###
 POST http://localhost:3000/signup HTTP/1.1
@@ -21,3 +21,8 @@ Content-Type: application/json
     "password":"abc",
     "confirmPassword":"abc"
 }
+
+### 
+GET http://localhost:3000/signout HTTP/1.1
+Content-Type: application/json
+refresh-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVVUlEIjoiM2M4ODZhMTAtNmVkYy00NzA3LTg5MzItZmE5NTJhY2ZhMDJmIiwidXNlck5hbWUiOiJodmUiLCJpYXQiOjE2NTk4ODc3MTEsImV4cCI6MTY1OTg5MDMwM30.TyPMlVVSPWAtCCQ9YxJ6oaTPs9MwTYSvYGMqQlQzR0Y

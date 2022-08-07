@@ -32,6 +32,7 @@ export const signup= async (request:Request, response:Response) => {
     const accessToken = getToken(user,true);
     const refreshToken = getToken(user,false);
     response.cookie("access-token",accessToken);
+    response.cookie("refresh-token",accessToken);
     response.status(200).send({
         "accessToken":accessToken,
         "refreshToken":refreshToken
