@@ -20,8 +20,8 @@ export const getToken = (params: signInParamsT, isAccessToken: boolean) => {
     return Token;
 }
 export const authToken = async (request: any, response: Response, next: NextFunction) => {
-    const accessToken = request.headers['access-token']?.toString() ?? request.cookie("access-token") ?? "";
-    const refreshToken = request.headers['refresh-token']?.toString() ?? request.cookie("refresh-token") ?? "";
+    const accessToken = request.headers['access-token'] ?? request.cookies['access-token'] ?? "";
+    const refreshToken = request.headers['refresh-token'] ?? request.cookies["refresh-token"] ?? "";
     const checkToken = await get(refreshToken);
     if (checkToken == null) {
         response.sendStatus(401);

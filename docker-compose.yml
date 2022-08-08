@@ -1,0 +1,43 @@
+version: "3.1"
+networks:
+  server-tier:
+    driver: bridge
+services:
+  authserver:
+    build:
+      context: .
+    image: authserver
+    networks:
+      - server-tier
+    expose:
+      - 3000
+    depends_on:
+      - mysqlserver
+      - redisserver
+    environment:
+      - PORT=3000
+      - ACCESS_TOKEN_SECRET=82b14e326b029d466f1b918c7db04f9484e73b8f0b5d7cfda1921f7abc38dcbefa6627ddd970d4fa060822d1c3782650b7d6a5bd34683bf86e5421d3b0630e74
+      - REFRESH_TOKEN_SECRET=3ed82317ae2c22e448057c1c009bfa755e3c1421c7b228a3272182e42c1b91cfd528babce2197ced8ef426417c8f977c24919c5f4e3bc9c32aaf3cbe7d06586f
+    ports:
+      - 3000:3000
+    container_name: authservernga
+  mysqlserver:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=test
+    expose:
+      - 3306
+    networks:
+      - server-tier
+    ports:
+      - 3306:3306
+    container_name: sqlservernga
+  redisserver:
+    image: redis:latest
+    expose:
+      - 6379
+    networks:
+      - server-tier
+    ports:
+      - 6379:6379
+    container_name: redisservernga

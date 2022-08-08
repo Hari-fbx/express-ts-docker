@@ -10,7 +10,7 @@ const redisClient = redis.createClient();
 })();
 
 redisClient.on('connect', () =>logger.info("Redis connected"));
-redisClient.on('error', (err) => logger.error(` Redis Connection Error$ {err}`))
+redisClient.on('error', (err) => logger.error(` Redis Connection Error ${err}`))
 
 export const get =async (token:string)=>{
   try{
